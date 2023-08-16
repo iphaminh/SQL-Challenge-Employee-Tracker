@@ -168,6 +168,15 @@ function viewAllDepartments() {
     });
 }
 
+function viewAllEmployees() {
+    connection.query('SELECT * FROM employee', (err, results) => {
+        if (err) throw err;
+        console.table(results);
+        init(); // Redirect back to the main menu after displaying results
+    });
+}
+
+
 function addDepartment() {
     inquirer.prompt([
         {
