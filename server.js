@@ -152,6 +152,14 @@ function init() {
     });
 }
 
+function viewAllRoles() {
+    connection.query('SELECT * FROM role', (err, results) => {
+        if (err) throw err;
+        console.table(results);
+        init(); // Redirect back to the main menu after displaying results
+    });
+}
+
 function viewAllDepartments() {
     connection.query('SELECT * FROM department', (err, results) => {
         if (err) throw err;
